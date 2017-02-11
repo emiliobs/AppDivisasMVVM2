@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppDivisasMVVMApi.Pages.MainPage"
+             xmlns:controls="clr-namespace:AppDivisasMVVMApi.Controls;assembly=AppDivisasMVVMApi"
+             Title="Foreign Ecchange."
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+
+  <StackLayout Padding="8">
+
+    <Label Text="Amount:"></Label>
+    <Entry Text="{Binding Amount, Mode=TwoWay}" Placeholder="Enter an amount....." Keyboard="Numeric"></Entry>
+    <Label Text="Source Currency:"></Label>
+    <!--<Picker Title="select a source currency....."></Picker>-->
+    <controls:BindablePicker Title="Select source currency....."
+                             DisplayMemberPath="Code"
+                             SelectedValuePath="TaxRate"
+                             ItemsSource="{Binding Rates}"
+                             SelectedValue="{Binding Path=SourceRate, Mode=TwoWay}"
+                              HorizontalOptions="FillAndExpand"
+                             VerticalOptions="Center">
+
+    </controls:BindablePicker>
+    <Label Text="Target Currency:"></Label>
+    <controls:BindablePicker
+      Title="Select a target currency....."
+                            DisplayMemberPath="Code"
+                            SelectedValuePath="TaxRate"
+                            ItemsSource="{Binding Rates}"
+                            SelectedValue="{Binding Path=TargetRate, Mode=TwoWay}"
+                             HorizontalOptions="FillAndExpand"
+                            VerticalOptions="Center">
+
+    </controls:BindablePicker>
+
+    <Button
+      Text="Convert.!"
+      BackgroundColor="DeepSkyBlue"
+      TextColor="White"
+      IsEnabled="{Binding IsEnable, Mode=TwoWay}"
+      Command="{Binding ConvertMoneyCommand}">
+
+    </Button>
+    <ActivityIndicator IsRunning="{Binding IsRunning, Mode=TwoWay}"></ActivityIndicator>
+    <Label Text="{Binding Message}"
+           VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+           VerticalTextAlignment="Center" HorizontalTextAlignment="Center"
+           BackgroundColor="SkyBlue" TextColor="Black" FontAttributes="Bold">
+      <!--Text="Enter an amount, select a source currency, select a target and press Convert button."-->
+    </Label>
+
+  </StackLayout>
+
+
+</ContentPage>

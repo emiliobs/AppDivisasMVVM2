@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using AppDivisasMVVMApi.Pages;
 using Xamarin.Forms;
 
 namespace AppDivisasMVVMApi
@@ -13,7 +13,7 @@ namespace AppDivisasMVVMApi
         {
             InitializeComponent();
 
-            MainPage = new AppDivisasMVVMApi.MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         protected override void OnStart()
