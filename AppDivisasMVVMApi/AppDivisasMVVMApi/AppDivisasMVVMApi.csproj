@@ -97,6 +97,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Controls\Controls.vsspell" />
+    <None Include="Helpers\Configuración del Ambiente de Desarrollo para Xamarin.docx" />
+    <None Include="Helpers\Divisas 2 MVVM.docx" />
+    <None Include="Helpers\Divisas MVVM.docx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
